@@ -1,0 +1,37 @@
+<div class="jumbotron text-center">
+    <h1>OneClickOrder App </h1>
+</div>
+
+<!-- orders LIST -->
+<!--    <div id="order-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+
+            <div class="checkbox" ng-repeat="order in orders">
+                <label>
+                    <input type="checkbox" ng-click="deleteOrder(order._id)"> {{ order.text }}
+                </label>
+            </div>
+
+        </div>
+    </div>-->
+
+<div id="order-form" class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <form>
+            <div class="form-group">
+
+
+                <input type="text" class="form-control input-lg text-center" placeholder="Enter a Order to save" ng-model="formData.text">
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-lg" ng-click="createOrder()">Add</button>
+        </form>
+        <ui-view></ui-view>
+    </div>
+</div>
+
+
+
+<div><a href="https://www.e-piotripawel.pl/klient/logowanie"  onclick="window.open('https://www.e-piotripawel.pl/klient/logowanie', 'newwindow', 'width=600, height=650'); return false;"> Click to go to Piotr and Pawel shop</a></div>
+<div><a href="https://www.x-kom.pl/logowanie"  onclick="window.open('https://www.x-kom.pl/logowanie', 'newwindow', 'width=600, height=650'); return false;"> Click to go to X-Kom shop</a></div>

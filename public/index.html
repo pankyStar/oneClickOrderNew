@@ -1,0 +1,50 @@
+<!doctype html>
+
+
+<html >
+<head>
+    <meta http-equiv="X-Frame-Options" content="allow">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Node/Angular one click Order App</title>
+
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <style>
+        html 					{ overflow-y:scroll; }
+        body 					{ padding-top:50px; }
+        #order-list { margin-bottom:30px; }
+        #order-form { margin-bottom:50px; }
+    </style>
+
+
+    <script src="js/assets/angular.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/services/OneClickOrders.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/assets/angular-ui-router.js"></script>
+    <script src="js/uirouterconfig.js"></script>
+
+</head>
+
+<body ng-app="OneClickApp" class="ng-scope" >
+<div class="container">
+    <a ui-sref="Template" ui-sref-active="active">Template</a>
+    <a ui-sref="EmpHomePage" ui-sref-active="active">EmpHomePage</a>
+    <!--<a ui-sref="EmpHomePage.results" ui-sref-active="active"> EmpSearchArea</a>-->
+    <ui-view></ui-view>
+
+</div>
+
+
+    <!-- <ul >
+        &lt;!&ndash; <li><a href="/app/views/EmployeeHomePage.html">view1</a></li>&ndash;&gt;
+         <ui-include re="/app/views/EmployeeHomePage.html"></ui-include>
+     </ul>-->
+
+<div id="emp_content"></div>
+
+</body>
+</html>
