@@ -3,9 +3,9 @@ angular.module('OneClickApp')
 
     .factory('Orders', function($http) {
         return {
-            getOrder : function() {
+            /*getOrder : function() {
                 return $http.get('/api/orders');
-            },
+            },*/
             create : function(todoData) {
                 console.log("called OneClickOrders.js for create")
                 return $http.post('/api/orders', todoData);
@@ -18,8 +18,8 @@ angular.module('OneClickApp')
                 return $http.get('/loaddata');
             },
             getSearchList:function ( query) {
-                console.log('in get serachlist service');
-                return $http.get("/searchvirtualbrowser/:query")
+                console.log('in get searchlist service');
+                return $http.get("/searchvirtualbrowser/"+query)
             }
         }
     });

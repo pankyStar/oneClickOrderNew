@@ -7,7 +7,7 @@ module.exports=function(sequelize){
         name: Sequelize.STRING(50),
         surname: Sequelize.STRING(50),
         email: Sequelize.STRING(50),
-        personalLink: Sequelize.STRING(90)
+        personalToken: Sequelize.STRING(50)
 
     })
 };

@@ -13,17 +13,23 @@ console.log("in router conf")
                 templateUrl:'../templates/EmployeeHomePage.html',
                 controller: 'mainController'
 
-            }).state({
+            })
+            .state({
             name:'EmpHomePage1',
             url:'/*',
-            templateUrl:'../templates/EmployeeHomePage.html',
-            controller: 'mainController'
+            templateUrl:'../templates/EmployeeHomePage.html'
              })
             .state({
-                name:'EmpHomePage.results',
-                url:'/searchResults/',
-                templateUrl:'../templates/searchList.html',
-                controller: 'mainController'
+                name:'EmpHomePage.search',
+                url:'/search'
+                //templateUrl:'../templates/searchList.html',
+                //controller: 'mainController'
+            })
+            .state({
+            name:'EmpHomePage.searchresults',
+             url:'/search/list',
+            templateUrl:'../templates/searchList.html'
 
-            });
+
+        });
     });

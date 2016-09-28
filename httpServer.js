@@ -1,3 +1,4 @@
+/*
 
 var http= require('http');
 
@@ -63,7 +64,7 @@ console.log("End of file httpProxyServer");
 
 
 
-/*
+/!*
 http.createServer(function (request, response) {
     console.log("in servser")
     var proxy=http.createClient(80,request.headers['http://www.catonmat.net/http-proxy-in-nodejs/']);
@@ -84,4 +85,5 @@ http.createServer(function (request, response) {
     request.addListener('end',function () {
         proxy_request.end();
     });
-}).listen(1337);*/
+}).listen(1337);*!/
+*/

@@ -18,6 +18,55 @@ var Sequelize=require('sequelize');
 var uuid=require('node-uuid');
 require('./nightmareRunner.js');
 var input=fs.createReadStream("./config/EmployeeDetails.txt");
+function User(){
+    this.name="name";
+    this.email="email";
+}
+
+function fn_load(response){
+    console.log("fn_load");
+    for(let i=0;i<response.data.length;i++){
+        // console.log("resdata",response.data[i].personalToken);
+        if(response.data[i].personalToken==window.location.href){
+            console.log("match")
+            return response.data[i];
+        } else {
+            console.log("no match")
+        }
+    }
+}
+
+// GLOBAL.SESSION={userID_Token :{virtual_Browser:{
+//     cookie:{},
+//     vb_instance:new Nightmare()
+//      }
+//      },
+//     user_FirstName:firstName,
+//     user_LastName:lastname,
+//     user_privateLink:privateLink
+// };
+var user=new User();
+GLOBAL.SESSION = {};
+
+function Session (user) {
+
+    this.token = generateToken();
+    this.body = {};
+    this.body.userName = user.name;
+    this.body.userEmail = user.email;
+
+
+    function generateToken () {
+        return 'abcdefg';
+    }
+    
+}
+
+Session.prototype.createSession = function (session) {
+    if (GLOBAL.SESSION[session.token]) {
+        GLOBAL.SESSION[session.token] = session.body;
+    }
+};
 
  sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
 
@@ -62,9 +111,9 @@ catch(err){
 
 
 var fileSplit= function(data) {
-    //console.log("hello")
-    var values=data.split(",");
-  //  console.log('syn -------> '+ data);
+    console.log("hello data ",data)
+    var values=data.split(" ");
+    console.log('syn -------> '+ values.length);
     if (data == 'all done') {
 
         employeeModel(sequelize).findAll({order:"createdAt"}).then(function (emps) {
@@ -81,7 +130,7 @@ var fileSplit= function(data) {
             msecs: new Date().getTime(),
             nsecs: 5678
         })  , name: values[0], surname: values[1],email:values[2],
-            personalLink:values[3] })
+            personalToken:values[3] })
             .then(function(employee) {
                 console.log("created Employees with id ",employee.get('id'))
 
@@ -115,7 +164,7 @@ function createEmpsTF(input, func) {
 
 
 //createEmpsTF(input, fileSplit );
-sequelize.sync()
+//sequelize.sync()
 
 
 /*sequelize.query("SELECT COUNT(*) FROM employees;").then(function (result) {

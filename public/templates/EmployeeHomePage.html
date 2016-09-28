@@ -9,7 +9,19 @@
     <h3> personal Link : {{employeeModel1.personalLink}}</h3>
 </div>
 <div > Logging in the  x-kom server</div>
-<form  method="get">
-<input name="q" type="text" maxlength="128"  >
-<input type="submit" value="Search in X-Kom">
+
+<form id="searchForm">
+<input name="q" type="text" ng-model="query" maxlength="128"  >
+<input type="submit" ng-click="test()" value="Search in X-Kom">
 </form>
+
+<div>Search list
+    <ul id="searchUL" >
+        <li ng-repeat="item in vSearchtList track by $index ">
+            <a ng-href="{{item}}">{{item}}</a>
+        </li>
+
+    </ul>
+</div>
+
+<ui-view > </ui-view>

@@ -13,10 +13,10 @@ module.exports = function(app) {
 
 
     // getOrder
-    app.get('/api/orders', function(req, res) {
+   /* app.get('/api/orders', function(req, res) {
         findHelper(req,res);
 
-    });
+    });*/
 
     // create
     app.post('/api/orders', function(req, res) {
@@ -52,18 +52,27 @@ module.exports = function(app) {
         })
     });
 
-    app.get("/searchvirtualbrowser",function (req, res) {
+    app.get("/searchvirtualbrowser/:query",function (req, res) {
         var searchquery=req.params.query;
-        console.log("searchquery>>>>> ",searchquery)
-        //call virtual server nightmare -
-       // nightmare.searchlistFromXKom(searchquery);
+        console.log("searchquery>>>>> ",searchquery);
+        if( typeof searchquery !=undefined && searchquery!=null){
+        nightmare.searchlistInXKom(searchquery).then(function (data) {
+            console.log("data returned from nightmare browser", data);
+            res.json({data:data});
+            console.log("data returned from node server res", res);
+
+        });
+        }
+    });
+    app.get("/oneClickApp.com/:token",function (req, res) {
+       employeeModel(selquelize).find({})
     });
     function findHelper (req, res){
         OrderRouter.find(function(err, orders) {
 
-            if (err)
+            if (err) {
                 res.send(err);
-
+            }
             res.json(orders);
         });
     }
