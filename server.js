@@ -14,15 +14,17 @@ var mysql=require("mysql");
 var employeeModel=require("./app/models/employeeModel");
 var fs = require('fs');
 var sql = fs.readFileSync('./config/databaseCreator.sql').toString();
+var secret = fs.readFileSync('./config/secret').toString();
 var Sequelize=require('sequelize');
 var uuid=require('node-uuid');
 require('./nightmareRunner.js');
+var jwt = require('jsonwebtoken');
 var input=fs.createReadStream("./config/EmployeeDetails.txt");
-function User(){
-    this.name="name";
-    this.email="email";
+function User(userName, email){
+    this.name=userName;
+    this.email=email;
 }
-
+/*
 function fn_load(response){
     console.log("fn_load");
     for(let i=0;i<response.data.length;i++){
@@ -34,7 +36,7 @@ function fn_load(response){
             console.log("no match")
         }
     }
-}
+}*/
 
 // GLOBAL.SESSION={userID_Token :{virtual_Browser:{
 //     cookie:{},
@@ -45,9 +47,7 @@ function fn_load(response){
 //     user_LastName:lastname,
 //     user_privateLink:privateLink
 // };
-var user=new User();
-GLOBAL.SESSION = {};
-
+var user=new User("sj","s@j.in");
 function Session (user) {
 
     this.token = generateToken();
@@ -57,18 +57,24 @@ function Session (user) {
 
 
     function generateToken () {
-        return 'abcdefg';
+        return jwt.sign(user,secret,{expiresIn:14400});
     }
     
 }
+global.SESSION = {};
+
 
 Session.prototype.createSession = function (session) {
-    if (GLOBAL.SESSION[session.token]) {
-        GLOBAL.SESSION[session.token] = session.body;
+    if (global.SESSION[session.token]) {
+        global.SESSION[session.token] = session.body;
     }
 };
+var session=new Session(user);
+session.createSession(session);
+console.log(" session >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ",session)
+console.log("global session ",SESSION[session.token])
 
- sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
+module.exports=sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
 
     host: database.urlMySql.host,
     dialect: 'mysql',
@@ -82,7 +88,7 @@ Session.prototype.createSession = function (session) {
 });
 //httpProxyServer.log()
 //sequelize.sync({ force: true })
-module.exports=sequelize;
+
 sequelize
     .authenticate()
     .then(function(err) {

@@ -31,5 +31,10 @@ console.log("in router conf")
             templateUrl:'../templates/searchList.html'
 
 
+        })
+            .state({
+                name:'EmpHomePage.product',
+                url:'/search/product',
+                templateUrl:'../templates/product.html'
         });
     });

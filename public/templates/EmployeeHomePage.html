@@ -6,22 +6,27 @@
 <div ng-if="employeeModel1">
     <h3> Employee First Name : {{employeeModel1.name}}</h3>
     <h3> Employee Last Name : {{employeeModel1.surname}} </h3>
-    <h3> personal Link : {{employeeModel1.personalLink}}</h3>
+    <h3> personal Link : {{employeeModel1.personalToken}}</h3>
 </div>
 <div > Logging in the  x-kom server</div>
 
 <form id="searchForm">
 <input name="q" type="text" ng-model="query" maxlength="128"  >
-<input type="submit" ng-click="test()" value="Search in X-Kom">
+<input type="submit" ng-click="test()" value="Search in X-Kom"
+       onclick="this.disabled=true;this.value='Sending, please wait...';" >
 </form>
 
 <div>Search list
     <ul id="searchUL" >
         <li ng-repeat="item in vSearchtList track by $index ">
-            <a ng-href="{{item}}">{{item}}</a>
+            <a  ng-click="sendLinktoServer(item)"  >{{item}}</a>
         </li>
 
     </ul>
+</div>
+
+<div ng-if="productData">
+    <div ng-bind-html="productData"></div>
 </div>
 
 <ui-view > </ui-view>
