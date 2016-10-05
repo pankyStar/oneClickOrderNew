@@ -30,14 +30,16 @@ angular.module('OneClickApp')
                     data:{link:productLink}
 
                 });
-               /* return $http.get("/oneClickApp.com/callServerForProduct")
-                    .success(function (data, status, header, config) {
-                        console.log("success",data,status,header,config)
-                }).error(function (data, status, header, config) {
-                        console.log(data,status,header,config)
-                    })*/
-            }
 
+            },
+            buyFromXKom:function (productLink) {
+                console.log("product",productLink);
+                return $http({
+                   url:"/buyfromXkom",
+                    method:"POST",
+                    data:{link:productLink}
+                });
+            }
 
         }
     });

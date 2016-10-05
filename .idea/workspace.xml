@@ -23,21 +23,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/routes.js">
+      <file leaf-file-name="OneClickOrders.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/services/OneClickOrders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="68" column="38" selection-start-line="68" selection-start-column="38" selection-end-line="68" selection-end-column="38" />
+            <state relative-caret-position="432">
+              <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EmployeeHomePage.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/EmployeeHomePage.html">
+      <file leaf-file-name="nightmareRunner.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/nightmareRunner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+            <state relative-caret-position="295">
+              <caret line="80" column="87" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="employeeVerify.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/employeeVerify.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/searchList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -53,41 +83,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uirouterconfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/uirouterconfig.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="33" />
+            <state relative-caret-position="291">
+              <caret line="105" column="67" selection-start-line="105" selection-start-column="67" selection-end-line="105" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/controllers/mainController.js">
+      <file leaf-file-name="EmployeeHomePage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/EmployeeHomePage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nightmareRunner.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/nightmareRunner.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OneClickOrders.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/services/OneClickOrders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+            <state relative-caret-position="462">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,8 +106,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/stylesheets/index.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -110,6 +130,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="XSLT Stylesheet" />
       </list>
     </option>
   </component>
@@ -132,7 +153,6 @@
         <option value="$PROJECT_DIR$/../oneClickOrder/config/databaseCreator.sql" />
         <option value="$PROJECT_DIR$/../oneClickOrder/config/EmployeeDeails.txt" />
         <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/angularController" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/angularapp.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/employeeVerify.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/config/database.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/services/OneClickOrders.js" />
@@ -140,7 +160,6 @@
         <option value="$PROJECT_DIR$/../oneClickOrder/app/views/EmployeeHomePage.html" />
         <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/uirouterconf.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/js/uirouterconf.js" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/public/js/core.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/templates/searchList.html" />
         <option value="$PROJECT_DIR$/../oneClickOrder/app/models/SessionModel.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/httpServer.js" />
@@ -152,13 +171,17 @@
         <option value="$PROJECT_DIR$/../oneClickOrder/server.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/js/controllers/loginController.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/js/uirouterconfig.js" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/public/index.html" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/templates/product.html" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/angularapp.js" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/js/core.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/public/js/services/OneClickOrders.js" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/js/controllers/mainController.js" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/stylesheets/style.scss" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/index.html" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/stylesheets/index.css" />
+        <option value="$PROJECT_DIR$/../oneClickOrder/public/templates/EmployeeHomePage.html" />
         <option value="$PROJECT_DIR$/../oneClickOrder/nightmareRunner.js" />
         <option value="$PROJECT_DIR$/../oneClickOrder/app/routes/routes.js" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/public/templates/product.html" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/public/js/controllers/mainController.js" />
-        <option value="$PROJECT_DIR$/../oneClickOrder/public/templates/EmployeeHomePage.html" />
       </list>
     </option>
   </component>
@@ -174,10 +197,10 @@
     <handled-path value="$PROJECT_DIR$/../oneClickOrder/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1381" />
-    <option name="y" value="62" />
+    <option name="x" value="1380" />
+    <option name="y" value="92" />
     <option name="width" value="1366" />
-    <option name="height" value="716" />
+    <option name="height" value="705" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -269,6 +292,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oneorder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oneClickOrder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -292,28 +333,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oneorder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oneClickOrder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,15 +512,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1474471872509</updated>
-      <workItem from="1474471966389" duration="210721000" />
+      <workItem from="1474471966389" duration="243281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210721000" />
+    <option name="totallyTimeSpent" value="243281000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1381" y="62" width="1366" height="716" extended-state="0" />
+    <frame x="1380" y="92" width="1366" height="705" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20997766" sideWeight="0.4903846" order="3" side_tool="false" content_ui="combo" />
@@ -539,32 +558,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/views/error.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <marker date="1474535887267" expanded="true" signature="0:1617" ph="/*...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/6.4.0/core-modules/util.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3618">
@@ -625,14 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-927">
           <caret line="977" column="0" selection-start-line="977" selection-start-column="0" selection-end-line="977" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/bower_components/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="11586" column="4" selection-start-line="11586" selection-start-column="4" selection-end-line="11586" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -713,27 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/assets/angular-ui-router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oneClickOrder/README.md">
       <provider editor-type-id="MarkdownFxPreviewEditor">
         <state />
@@ -752,14 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/orderModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -804,56 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/SessionModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/employeeModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/employeeVerify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/controllers/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/angularapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oneClickOrder/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-882">
@@ -870,26 +776,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/searchList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../oneClickOrder/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="264" column="4" selection-start-line="264" selection-start-column="4" selection-end-line="264" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/SessionModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/bower_components/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="19000" column="4" selection-start-line="19000" selection-start-column="4" selection-end-line="19000" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/angularapp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/employeeModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -904,34 +828,145 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/services/OneClickOrders.js">
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/models/orderModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/nightmareRunner.js">
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/assets/angular-sanitize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="-1494">
+          <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+          <folding>
+            <marker date="1474475243000" expanded="true" signature="2263:2776" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="2368:2760" ph="[...]" />
+            <marker date="1474475243000" expanded="true" signature="2410:2759" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="2673:2745" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="2821:3987" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="2913:3973" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="2927:3052" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="3095:3330" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="3199:3203" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="3229:3233" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="3238:3242" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="3246:3250" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="3370:3712" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="3499:3614" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="3516:3597" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="3517:3521" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="3575:3579" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="3588:3592" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="3744:3957" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="3836:3840" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="3861:3865" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="3870:3874" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="3878:3882" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="4115:4265" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="4345:4593" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="4660:4924" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="4964:5478" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="20605:22014" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="20696:22013" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="20710:20808" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="20840:21093" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="20889:20989" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="20909:20913" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="20947:20951" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="20955:20959" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="20963:20967" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="21005:21078" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="21125:21415" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="21172:21292" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="21191:21195" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21251:21255" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="21259:21263" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21267:21271" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="21307:21400" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="21458:21793" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="21516:21653" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="21535:21539" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21612:21616" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="21620:21624" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21628:21632" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="21668:21778" ph="..." />
+            <marker date="1474475243000" expanded="true" signature="21825:21997" ph="..." />
+            <marker date="1474475243000" expanded="false" signature="21877:21881" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21902:21906" ph="&gt;" />
+            <marker date="1474475243000" expanded="false" signature="21910:21914" ph="&lt;" />
+            <marker date="1474475243000" expanded="false" signature="21918:21922" ph="&gt;" />
+            <marker date="1474475243000" expanded="true" signature="22153:22508" ph="[...]" />
+            <marker date="1474475243000" expanded="true" signature="22181:22507" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="22636:22990" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="23070:23423" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="23465:23932" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="23997:24275" ph="{...}" />
+            <marker date="1474475243000" expanded="true" signature="24343:24659" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/assets/angular-ui-router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/routes.js">
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="68" column="38" selection-start-line="68" selection-start-column="38" selection-end-line="68" selection-end-column="38" />
+        <state relative-caret-position="18">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/uirouterconfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="33" />
+        <state relative-caret-position="414">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/controllers/loginController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/controllers/mainController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="39" column="62" selection-start-line="39" selection-start-column="62" selection-end-line="39" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/services/OneClickOrders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -944,18 +979,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/js/controllers/mainController.js">
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/stylesheets/style.xsl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/stylesheets/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/searchList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../oneClickOrder/public/templates/EmployeeHomePage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+        <state relative-caret-position="462">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/employeeVerify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/nightmareRunner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="80" column="87" selection-start-line="80" selection-start-column="87" selection-end-line="80" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../oneClickOrder/app/routes/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="105" column="67" selection-start-line="105" selection-start-column="67" selection-end-line="105" selection-end-column="67" />
           <folding />
         </state>
       </provider>

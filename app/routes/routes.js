@@ -1,8 +1,10 @@
 var OrderRouter = require('../models/oneClickOrder.js');
 var employeeModel = require('../models/employeeModel.js');
 var nightmare = require('../../nightmareRunner.js');
-//var jsdom = require("jsdom");
-//var app1=require("../../server.js");
+var cheerio=require('cheerio')
+var request =require('request')
+
+
 module.exports = function (app) {
 
     console.log("in app routes.js")
@@ -20,7 +22,7 @@ module.exports = function (app) {
 
     // create
     app.post('/api/orders', function (req, res) {
-        console.log("called routes for create")
+        console.log("called routes for create");
 
         OrderRouter.create({
             text: req.body.text,
@@ -56,25 +58,73 @@ module.exports = function (app) {
         console.log("called server for product page",req.body);
         var productLink=req.body.link;
         console.log("product link>>",productLink);
-        ///var tokenfromUser = req.params.token;
-        //console.log("token from user >>>>> ", tokenfromUser);
-
-
-            //  console.log(" match*****++++++++++++",result);
-
-                console.log("serverproduct");
+        var data=null;
                 if (typeof productLink !== undefined && productLink !== null && productLink != "") {
-                    nightmare.productPage(productLink).then(function (data) {
-                        console.log("nightmare product result");
-                        res.json(data)
-                    });
-                }
 
+                        console.log("request and cheerio the html for the product");
+                        request(productLink,function (error, response, body) {
+                        if(!error && response.statusCode==200 ){
+                            $=cheerio.load(body);
+                            $('.breadcrumbs').remove()
+                            $('div[class="box box-review"]').remove()
+                            data= $('div[class="container"]').html();
+                            res.json(data)
+                        }
+                    })
+                }
                 });
 
+    app.post("/buyfromXkom",function (req,res) {
+        console.log("called private nightmare browser to buy");
+        var productLink=req.body.link;
+        console.log("product link>>",productLink);
+        if (typeof productLink !== undefined && productLink !== null && productLink != "") {
+            nightmare.buyFromXKom(productLink).then(function (data) {
+                console.log("data returned from nightmare browser", data);
+                res.json({data: data});
+                console.log("data returned from node server");
+
+            });
+        }
+
+    })
 
 
     app.get("/oneClickApp.com/:token/searchvirtualbrowser/:query", function (req, res) {
+        var searchquery = req.params.query;
+        var tokenfromUser = req.params.token;
+        console.log("searchquery>>>>> ", searchquery);
+        console.log("token from user >>>>> ", tokenfromUser);
+        var dataSet=new Set();
+        if (typeof searchquery !== undefined && searchquery !== null && searchquery != "") {
+
+            console.log("request and cheerio to search in XKOm");
+            request("https://www.x-kom.pl/szukaj?q="+searchquery,function (error, response, body) {
+                if(!error && response.statusCode==200 ){
+                    $=cheerio.load(body);
+                    //console.log("body ", body);
+                    var links=$('.product-list-wrapper').find('href');
+                    console.log(links)
+                   /* $(links).each(function (i, link) {
+                        console.log(" >>>" ,i.attr('href'));
+                        dataSet.add(i.attr('href'))
+
+                    });*/
+
+                   for(let i=0;i<links.length;i++){
+                dataSet.add( links[i].attr('href'))
+                   }
+                    console.log("data from cheerio >>>",dataSet);
+                    res.json(dataSet)
+                }
+            })
+        }
+
+
+    });
+
+
+   /* app.get("/oneClickApp.com/:token/searchvirtualbrowser/:query", function (req, res) {
         var searchquery = req.params.query;
         var tokenfromUser = req.params.token;
         console.log("searchquery>>>>> ", searchquery);
@@ -100,7 +150,7 @@ module.exports = function (app) {
         });
 
 
-    });
+    });*/
 
     function findEmpInDb(personalToken, callback) {
 

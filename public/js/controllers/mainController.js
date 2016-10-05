@@ -11,9 +11,19 @@ angular.module('OneClickApp')
 
         $scope.test = function () {
             Orders.getSearchList($scope.query).then(function (result) {
+
                 $scope.isProcessing = true;
                 console.log("in controller after searching in from local browser ");
-                $scope.vSearchtList = result.data.data;
+                $scope.vSearchtList = result.data.data.map(function (element) {
+                    var product={
+                        name:"",
+                        link:element,
+                        content:"",
+                        isExpanded:false
+                    };
+
+                    return product;
+                });
             });
         };
 
@@ -24,14 +34,26 @@ angular.module('OneClickApp')
         }, function (reason) {
             console.log(reason);
         });
+
+        $scope.buyUsingLocalServer=function (productLink) {
+            Orders.buyFromXKom(productLink).then(function (result) {
+                console.log("after buying from local server ->Xkom")
+            })
+
+
+        };
+
         $scope.sendLinktoServer = function (item) {
-            console.log("=================\n\n ==============\n\n", item);
-            Orders.getProductPage(item).then(function (result) {
+               if(item.content.length>0){
+                return;
+            }
+            Orders.getProductPage(item.link).then(function (result) {
                 console.log("in controller after searching in from local browser ");
 
-                $scope.productData = $sce.trustAsHtml(result.data);
+                item.content=result.data;
             });
         };
+
 
         $scope.createOrder = function () {
             console.log("in maincontroller to create order");
@@ -71,4 +93,9 @@ angular.module('OneClickApp')
                     // $scope.orders = data;
                 });
         };
-    });
+    }).filter('to_trusted', ['$sce', function ($sce) {
+
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    }
+}]);

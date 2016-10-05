@@ -18,15 +18,20 @@
 
 <div>Search list
     <ul id="searchUL" >
-        <li ng-repeat="item in vSearchtList track by $index ">
-            <a  ng-click="sendLinktoServer(item)"  >{{item}}</a>
+        <li ng-class="{'highlight-link': item.content}" ng-repeat="item in vSearchtList track by $index ">
+            <button ng-click="item.isExpanded=!item.isExpanded" >+</button>
+            <button ng-click="item.isExpanded && buyUsingLocalServer(item.link)"
+                    >Buy/Kupuj</button>
+            <a  ng-click="sendLinktoServer(item)"  >{{item.link}}</a>
+            <!--<div class="content" ng-show="item.isExpanded"> {{item.content}}</div>-->
+            <div  ng-show="item.isExpanded" ng-bind-html="item.content | to_trusted"></div>
         </li>
 
     </ul>
 </div>
 
-<div ng-if="productData">
+<!--<div ng-if="productData">
     <div ng-bind-html="productData"></div>
-</div>
+</div>-->
 
 <ui-view > </ui-view>
