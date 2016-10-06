@@ -22,19 +22,10 @@ console.log("in router conf")
             .state({
                 name:'EmpHomePage.search',
                 url:'/search'
-                //templateUrl:'../templates/searchList.html',
-                //controller: 'mainController'
             })
             .state({
             name:'EmpHomePage.searchresults',
              url:'/search/list',
             templateUrl:'../templates/searchList.html'
-
-
-        })
-            .state({
-                name:'EmpHomePage.product',
-                url:'/search/product',
-                templateUrl:'../templates/product.html'
-        });
+            })
     });

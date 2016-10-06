@@ -15,17 +15,17 @@ angular.module('OneClickApp')
             },
             getEmployee:function(){
                 console.log("called service for employee");
-                return $http.get('/oneClickApp.com/:token/loaddata');
+                return $http.get('/oneClickApp/:token/loaddata');
             },
             getSearchList:function ( query) {
                 console.log('in get searchlist service');
-                return $http.get("/oneClickApp.com/:token/searchvirtualbrowser/"+query)
+                return $http.get("/oneClickApp/:token/searchvirtualbrowser/"+query)
             },
             getProductPage:function (productLink) {
-                console.log(productLink);
+
                 console.log("in getproductpage service method");
                 return $http({
-                    url:"/oneClickApp.com/callServerForProduct",
+                    url:"/oneClickApp/callServerForProduct",
                     method:"POST",
                     data:{link:productLink}
 

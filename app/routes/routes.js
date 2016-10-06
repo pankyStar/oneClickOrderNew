@@ -1,6 +1,6 @@
-var OrderRouter = require('../models/oneClickOrder.js');
+var Item = require('../models/Item.js');
 var employeeModel = require('../models/employeeModel.js');
-var nightmare = require('../../nightmareRunner.js');
+var nightmare = require('../nightmareRunner.js');
 var cheerio=require('cheerio')
 var request =require('request')
 
@@ -14,20 +14,21 @@ module.exports = function (app) {
     });
 
 
-    // getOrder
-    /* app.get('/api/orders', function(req, res) {
+     //getOrder
+    app.get('/oneClickApp/items', function(req, res) {
      findHelper(req,res);
 
-     });*/
+     })
 
     // create
-    app.post('/api/orders', function (req, res) {
+    app.post('/oneClickApp/items', function (req, res) {
         console.log("called routes for create");
 
-        OrderRouter.create({
-            text: req.body.text,
-            done: false
-        }, function (err, order) {
+        Item.create({
+             itemName: String,
+                itemPrice : Float,
+                itemLink: String
+        }, function (err, item) {
             if (err)
                 res.send(err);
 
@@ -36,25 +37,25 @@ module.exports = function (app) {
 
     });
 
-    app.delete('/api/orders/:order_id', function (req, res) {
-        OrderRouter.remove({
-            _id: req.params.order_id
-        }, function (err, order) {
+    app.delete('/oneClickApp/items/:item_id', function (req, res) {
+        Item.remove({
+            _id: req.params.item_id
+        }, function (err, item) {
             if (err)
                 res.send(err);
 
-            // getOrder
+            // getItem
             findHelper(req, res);
         });
     });
 
-    app.get("/oneClickApp.com/:token/loaddata", function (req, res) {
+    app.get("/oneClickApp/:token/loaddata", function (req, res) {
         employeeModel(sequelize).findAll().then(function (result) {
             res.json(result);
         })
     });
 
-    app.post("/oneClickApp.com/callServerForProduct/", function (req, res) {
+    app.post("/oneClickApp/callServerForProduct/", function (req, res) {
         console.log("called server for product page",req.body);
         var productLink=req.body.link;
         console.log("product link>>",productLink);
@@ -90,7 +91,7 @@ module.exports = function (app) {
     })
 
 
-    app.get("/oneClickApp.com/:token/searchvirtualbrowser/:query", function (req, res) {
+    app.get("/oneClickApp/:token/searchvirtualbrowser/:query", function (req, res) {
         var searchquery = req.params.query;
         var tokenfromUser = req.params.token;
         console.log("searchquery>>>>> ", searchquery);
@@ -102,20 +103,16 @@ module.exports = function (app) {
             request("https://www.x-kom.pl/szukaj?q="+searchquery,function (error, response, body) {
                 if(!error && response.statusCode==200 ){
                     $=cheerio.load(body);
-                    //console.log("body ", body);
-                    var links=$('.product-list-wrapper').find('href');
-                    console.log(links)
-                   /* $(links).each(function (i, link) {
-                        console.log(" >>>" ,i.attr('href'));
-                        dataSet.add(i.attr('href'))
-
-                    });*/
-
+                    var links=$('.product-list-wrapper').find('a');
                    for(let i=0;i<links.length;i++){
-                dataSet.add( links[i].attr('href'))
+                       var href=$(links[i]).attr('href');
+                       if(href.indexOf("#reviews")==-1){
+                           dataSet.add( "https://www.x-kom.pl"+$(links[i]).attr('href'))
+                       }
+
                    }
                     console.log("data from cheerio >>>",dataSet);
-                    res.json(dataSet)
+                    res.json({data:Array.from(dataSet)})
                 }
             })
         }
@@ -123,60 +120,29 @@ module.exports = function (app) {
 
     });
 
-
-   /* app.get("/oneClickApp.com/:token/searchvirtualbrowser/:query", function (req, res) {
-        var searchquery = req.params.query;
-        var tokenfromUser = req.params.token;
-        console.log("searchquery>>>>> ", searchquery);
-        console.log("token from user >>>>> ", tokenfromUser);
-        findEmpInDb(tokenfromUser, function (result) {
-            //    matched=result;
-            console.log("after find in db.");
-            //  console.log(" match*****++++++++++++",result);
-            if (result !== null && result.length <= 0) { //c to >
-                console.log("virtualbrowser");
-                if (typeof searchquery !== undefined && searchquery !== null && searchquery != "") {
-                    nightmare.searchlistInXKom(searchquery).then(function (data) {
-                        console.log("data returned from nightmare browser", data);
-                        res.json({data: data});
-                        console.log("data returned from node server");
-
-                    });
-                }
-            }
-            else {
-                res.json({data: "user was not found"});
-            }
-        });
-
-
-    });*/
-
     function findEmpInDb(personalToken, callback) {
-
-        employeeModel(sequelize).findAll({
-            where: {
+        employeeModel(sequelize).findAll({ where: {
                 personalToken: personalToken
             }
         }).then(function (result) {
             console.log(" no of found emps with token******", result.length);
             callback(result);
         }).catch(err=>console.log("err", err));
-
     }
 
-    app.get("/oneClickApp.com/:token/login", function (req, res) {
+    app.get("/oneClickApp/:token/login", function (req, res) {
         var tokenfromUser = req.params.token;
         findEmpInDb(tokenfromUser);
 
     });
+
     function findHelper(req, res) {
-        OrderRouter.find(function (err, orders) {
+        Item.find(function (err, items) {
 
             if (err) {
                 res.send(err);
             }
-            res.json(orders);
+            res.json(items);
         });
     }
 

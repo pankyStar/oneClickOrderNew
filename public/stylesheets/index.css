@@ -1,4 +1,12 @@
 
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 50px;
+}
+
 .highlight-link a{
   color:white;
   background-color: green;
@@ -9,3 +17,12 @@
   background-color: black;
 
 }
+
+#content {
+  position: relative;
+  top:40px;
+  right:370px;
+  margin-top:-80px;
+
+}
+

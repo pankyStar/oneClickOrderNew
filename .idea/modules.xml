@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../oneClickOrder/.idea/oneorder.iml" filepath="$PROJECT_DIR$/../oneClickOrder/.idea/oneorder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/oneClickOrder.iml" filepath="$PROJECT_DIR$/.idea/oneClickOrder.iml" />
     </modules>
   </component>
 </project>

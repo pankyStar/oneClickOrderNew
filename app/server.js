@@ -3,7 +3,7 @@ var express  = require('express');
 var app      = express();
 var mongoose = require('mongoose');
 var port     = process.env.PORT || 8080;
-var database = require('./config/database');
+var database = require('../config/database');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -11,15 +11,16 @@ const http = require('http');
 const net = require('net');
 const url = require('url');
 var mysql=require("mysql");
-var employeeModel=require("./app/models/employeeModel");
+var employeeModel=require("../app/models/employeeModel");
 var fs = require('fs');
-var sql = fs.readFileSync('./config/databaseCreator.sql').toString();
-var secret = fs.readFileSync('./config/secret').toString();
+var sql = fs.readFileSync('../config/databaseCreator.sql').toString();
+var secret = fs.readFileSync('../config/secret').toString();
 var Sequelize=require('sequelize');
 var uuid=require('node-uuid');
-require('./nightmareRunner.js');
+require('../app/nightmareRunner.js');
+require('../app/routes/routes.js')(app);
 var jwt = require('jsonwebtoken');
-var input=fs.createReadStream("./config/EmployeeDetails.txt");
+var input=fs.createReadStream("../config/EmployeeDetails.txt");
 function User(userName, email){
     this.name=userName;
     this.email=email;
@@ -184,13 +185,13 @@ function createEmpsTF(input, func) {
 
 };
 
-var MongoDB = mongoose.connect(databaseCreator.sql.url).connection;
+*/
+
+var MongoDB = mongoose.connect(database.urlMongoDB).connection;
 MongoDB.on('error', function(err) { console.log(err); });
 MongoDB.once('open', function() {
     console.log("mongodb connection open");
 });
-*/
-
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -198,7 +199,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
-require('./app/routes/routes.js')(app);
+
 
 app.listen(port);
 

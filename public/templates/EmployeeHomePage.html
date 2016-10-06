@@ -1,14 +1,15 @@
 
 
-<script>function  connectToServer(){
-
-    } </script>
-<div ng-if="employeeModel1">
-    <h3> Employee First Name : {{employeeModel1.name}}</h3>
-    <h3> Employee Last Name : {{employeeModel1.surname}} </h3>
-    <h3> personal Link : {{employeeModel1.personalToken}}</h3>
+<div id="content" class="pull-right">
+    <img src="../images/basket.png"/>
+    <div>Basket Total: {{totalPrice()}}</div>
 </div>
-<div > Logging in the  x-kom server</div>
+<div ng-if="employeeModel1">
+    <div> Employee First Name : {{employeeModel1.name}}</div>
+    <div> Employee Last Name : {{employeeModel1.surname}} </div>
+    <div> personal Link : {{employeeModel1.personalToken}}</div>
+</div>
+
 
 <form id="searchForm">
 <input name="q" type="text" ng-model="query" maxlength="128"  >
@@ -22,7 +23,7 @@
             <button ng-click="item.isExpanded=!item.isExpanded" >+</button>
             <button ng-click="item.isExpanded && buyUsingLocalServer(item.link)"
                     >Buy/Kupuj</button>
-            <a  ng-click="sendLinktoServer(item)"  >{{item.link}}</a>
+            <a  ng-click="addItemToLocalBasket(item)"  >{{item.link}}</a>
             <!--<div class="content" ng-show="item.isExpanded"> {{item.content}}</div>-->
             <div  ng-show="item.isExpanded" ng-bind-html="item.content | to_trusted"></div>
         </li>

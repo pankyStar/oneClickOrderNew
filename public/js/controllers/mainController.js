@@ -1,6 +1,6 @@
 angular.module('OneClickApp')
 
-    .controller('mainController', function ($scope, Orders, $stateParams,$sce) {
+    .controller('mainController', function ($scope, Orders, $stateParams,$sce,Cart) {
         // $scope.formData = {};
 
         $scope.employeeModel1 = null
@@ -8,12 +8,13 @@ angular.module('OneClickApp')
          .success(function(data) {
          //  $scope.orders = data;
          });*/
+         $scope.
 
         $scope.test = function () {
             Orders.getSearchList($scope.query).then(function (result) {
 
                 $scope.isProcessing = true;
-                console.log("in controller after searching in from local browser ");
+                console.log("in controller after searching in from local browser ", result.data.data);
                 $scope.vSearchtList = result.data.data.map(function (element) {
                     var product={
                         name:"",
@@ -37,12 +38,16 @@ angular.module('OneClickApp')
 
         $scope.buyUsingLocalServer=function (productLink) {
             Orders.buyFromXKom(productLink).then(function (result) {
-                console.log("after buying from local server ->Xkom")
+                console.log("after buying from local server ->Xkom", result)
             })
 
 
         };
 
+        $scope.addItemToLocalBasket=function (item) {
+
+        Cart.addItem(item);
+        }
         $scope.sendLinktoServer = function (item) {
                if(item.content.length>0){
                 return;
