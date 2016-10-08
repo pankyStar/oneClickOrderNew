@@ -28,4 +28,10 @@ console.log("in router conf")
              url:'/search/list',
             templateUrl:'../templates/searchList.html'
             })
+            .state({
+                name:"EmpHomePage.basket",
+                url:"/basket/items",
+                templateUrl:'../templates/BasketItems.html'
+
+            })
     });

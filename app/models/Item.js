@@ -5,7 +5,10 @@ var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Item', {
     itemName: String,
-    itemPrice : Number,
-    itemLink: String
+    itemPrice : String,
+    itemLink: String,
+    itemCurrency:String,
+    userSession:{}
+
 
 });

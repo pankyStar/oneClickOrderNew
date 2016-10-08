@@ -1,4 +1,21 @@
-<div id="basketDetails"> Basket Items</div>
-<div> Item Link: </div>
-<div> Item Price:</div>
-<div>  Total :</div>
+<div id="basketDetails" class="row pull-right">
+
+        <h3> Basket Items </h3>
+    <table class="col-sm-8 col-sm-offset-6 table table-striped">
+        <tr>
+            <th> Item Name </th>
+            <th> Item Quantity </th>
+            <th> Item Price</th>
+            <th> User name</th>
+        </tr>
+<tr ng-repeat="item in basketItems">
+    <td>{{item.itemName}}</td>
+    <td>1</td>
+    <td>{{item.itemPrice}}<td>
+    <td>{{item.userSession.body.userEmail}}</td>
+
+</tr>
+    <th>  Total Amount {{totalAmount}}</th>
+    <th>  Total Items :{{totalItems}}</th>
+</table>
+</div>

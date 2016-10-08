@@ -1,6 +1,6 @@
 angular.module('OneClickApp')
 
-    .controller('mainController', function ($scope, Orders, $stateParams,$sce,Cart) {
+    .controller('mainController', function ($scope, Orders, $stateParams,$sce, BasketService) {
         // $scope.formData = {};
 
         $scope.employeeModel1 = null
@@ -8,23 +8,43 @@ angular.module('OneClickApp')
          .success(function(data) {
          //  $scope.orders = data;
          });*/
-         $scope.
+         $scope.totalPrice=function(){
 
-        $scope.test = function () {
+         }
+
+         $scope.totalItems=0;
+         $scope.basketItems=null;
+         $scope.totalAmount=0;
+
+         $scope.getBasketItems=function(){
+            console.log("main ctrl for basket items");
+            // console.log(">>>>>>>>>>>>>>>>>>>>",BasketService.findAll())
+            BasketService.findAll().then(function (result) {
+                $scope.basketItems=result.data;
+                console.log("bitems", result.data)
+             });
+
+        };
+
+        $scope.searchInXKom = function () {
             Orders.getSearchList($scope.query).then(function (result) {
 
                 $scope.isProcessing = true;
-                console.log("in controller after searching in from local browser ", result.data.data);
+                console.log("in controller after list is returned ", result.data);
                 $scope.vSearchtList = result.data.data.map(function (element) {
                     var product={
-                        name:"",
-                        link:element,
+                        itemName: "",
+                        itemPrice : "",
+                        itemCurrency:"",
+                        itemLink:element,
                         content:"",
                         isExpanded:false
+
                     };
 
                     return product;
                 });
+                console.log("link array >>>>>>>>>>>>>>>>>>>>>>>>>>   ", $scope.vSearchtList)
             });
         };
 
@@ -45,17 +65,32 @@ angular.module('OneClickApp')
         };
 
         $scope.addItemToLocalBasket=function (item) {
+        console.log("in add basket item to db",item)
+        var itemMongodb={
+                         itemName: item.itemName,
+                            itemPrice : item.itemPrice,
+                            itemLink: item.itemLink,
+                             itemCurrency:item.itemCurrency
+        };
+            var x = parseInt(item.itemPrice, 10)
+            $scope.totalItems+=1;
+            $scope.totalAmount+=x;
+        BasketService.addItem(itemMongodb);
+        };
 
-        Cart.addItem(item);
-        }
         $scope.sendLinktoServer = function (item) {
+        console.log("item to search",item.itemLink)
                if(item.content.length>0){
                 return;
             }
-            Orders.getProductPage(item.link).then(function (result) {
-                console.log("in controller after searching in from local browser ");
+            Orders.getProductPage(item.itemLink).then(function (result) {
+                console.log("in controller after searching in from local browser ", result.data);
 
-                item.content=result.data;
+                item.content=result.data.content;
+                item.itemName=result.data.itemName;
+                item.itemPrice=result.data.itemPrice;
+                item.itemLink=result.data.itemLink;
+                item.itemCurrency=result.data.itemCurrency
             });
         };
 

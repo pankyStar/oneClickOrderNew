@@ -1,6 +1,6 @@
 module.exports = {
 
-     urlMongoDB :'mongodb://panky123:panky123@jello.modulusmongo.net:27017/Uj3iwase',
+     urlMongoDB :'mongodb://pankaj:pppkkkppp@localhost:27017/oneClickOrderDB',
      urlMySql:{
          host:"localhost",
          user:"Oneclick",

@@ -23,6 +23,15 @@ body {
   top:40px;
   right:370px;
   margin-top:-80px;
+  cursor: pointer;
+  cursor: hand;
 
 }
 
+#basketDetails{
+position: absolute;
+  top:100px;
+  right:150px;
+  margin-top:10px;
+
+}

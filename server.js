@@ -3,7 +3,7 @@ var express  = require('express');
 var app      = express();
 var mongoose = require('mongoose');
 var port     = process.env.PORT || 8080;
-var database = require('../config/database');
+var database = require('./config/database');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
@@ -11,20 +11,17 @@ const http = require('http');
 const net = require('net');
 const url = require('url');
 var mysql=require("mysql");
-var employeeModel=require("../app/models/employeeModel");
+var employeeModel=require("./app/models/employeeModel");
 var fs = require('fs');
-var sql = fs.readFileSync('../config/databaseCreator.sql').toString();
-var secret = fs.readFileSync('../config/secret').toString();
+var sql = fs.readFileSync('./config/databaseCreator.sql').toString();
+
 var Sequelize=require('sequelize');
 var uuid=require('node-uuid');
-require('../app/nightmareRunner.js');
-require('../app/routes/routes.js')(app);
-var jwt = require('jsonwebtoken');
-var input=fs.createReadStream("../config/EmployeeDetails.txt");
-function User(userName, email){
-    this.name=userName;
-    this.email=email;
-}
+require('./nightmareRunner.js');
+
+
+var input=fs.createReadStream("./config/EmployeeDetails.txt");
+
 /*
 function fn_load(response){
     console.log("fn_load");
@@ -39,7 +36,7 @@ function fn_load(response){
     }
 }*/
 
-// GLOBAL.SESSION={userID_Token :{virtual_Browser:{
+// GLOBAL.session={userID_Token :{virtual_Browser:{
 //     cookie:{},
 //     vb_instance:new Nightmare()
 //      }
@@ -48,32 +45,6 @@ function fn_load(response){
 //     user_LastName:lastname,
 //     user_privateLink:privateLink
 // };
-var user=new User("sj","s@j.in");
-function Session (user) {
-
-    this.token = generateToken();
-    this.body = {};
-    this.body.userName = user.name;
-    this.body.userEmail = user.email;
-
-
-    function generateToken () {
-        return jwt.sign(user,secret,{expiresIn:14400});
-    }
-    
-}
-global.SESSION = {};
-
-
-Session.prototype.createSession = function (session) {
-    if (global.SESSION[session.token]) {
-        global.SESSION[session.token] = session.body;
-    }
-};
-var session=new Session(user);
-session.createSession(session);
-console.log(" session >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ",session)
-console.log("global session ",SESSION[session.token])
 
 module.exports=sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
 
@@ -187,10 +158,11 @@ function createEmpsTF(input, func) {
 
 */
 
-var MongoDB = mongoose.connect(database.urlMongoDB).connection;
-MongoDB.on('error', function(err) { console.log(err); });
-MongoDB.once('open', function() {
+var connectionMongoDB = mongoose.connect(database.urlMongoDB).connection;
+connectionMongoDB.on('error', function(err) { console.log(err); });
+connectionMongoDB.once('open', function() {
     console.log("mongodb connection open");
+    console.log(connectionMongoDB)
 });
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
@@ -200,7 +172,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
 
-
+require('./app/routes/routes.js')(app);
 app.listen(port);
 
 console.log("App listening on port " ,+ port);
