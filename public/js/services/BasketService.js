@@ -21,7 +21,7 @@ angular.module('OneClickApp')
                          return $http.delete('/oneClickApp/basket/item/' + id);
                             },
             findAll:function () {
-                                console.log("find all products for this session token")
+                                console.log("find all products for current day")
                             return $http.get('/oneClickApp/basket/items')
             }
         }
@@ -33,7 +33,7 @@ angular.module('OneClickApp')
                             return $http.get('/api/orders');
                         },*/
                      /*   create : function(item) {
-                            console.log("called OneClickOrders.js for create")
+                            console.log("called ProductService.js for create")
                             return $http.post('/oneClickApp/items', item);
                         },*/
 

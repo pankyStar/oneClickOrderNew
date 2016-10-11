@@ -7,10 +7,11 @@ angular.module('OneClickApp')
 
         $scope.login=function (link) {
             LoginService.login(link).then(function (result) {
-                console.log(result)
+                console.log("in login controller",result);
+
                 $scope.user=result.data;
             })
-        }
+        };
         /*$http.post('OneClickApp/:token/login', $scope.user).then(function (response) {
             console.log(response.data)
             $scope.message=response.data;

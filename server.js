@@ -12,10 +12,13 @@ const net = require('net');
 const url = require('url');
 var mysql=require("mysql");
 var employeeModel=require("./app/models/employeeModel");
+
+//var httpserver=require("./httpServer.js");
+
 var fs = require('fs');
 var sql = fs.readFileSync('./config/databaseCreator.sql').toString();
 
-var Sequelize=require('sequelize');
+//var Sequelize=require('sequelize');
 var uuid=require('node-uuid');
 require('./nightmareRunner.js');
 
@@ -46,7 +49,7 @@ function fn_load(response){
 //     user_privateLink:privateLink
 // };
 
-module.exports=sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
+/*module.exports=sequelize = new Sequelize(database.urlMySql.database, database.urlMySql.user, database.urlMySql.password, {
 
     host: database.urlMySql.host,
     dialect: 'mysql',
@@ -57,11 +60,11 @@ module.exports=sequelize = new Sequelize(database.urlMySql.database, database.ur
         idle: 10000
     },
 
-});
+});*/
 //httpProxyServer.log()
 //sequelize.sync({ force: true })
 
-sequelize
+/*sequelize
     .authenticate()
     .then(function(err) {
         console.log('DB Connection has been established successfully.');
@@ -78,7 +81,7 @@ sequelize
 })
     .catch(function (err) {
         console.log('Unable to connect to the database:', err);
-    });
+    });*/
 /*
 try{ sequelize.query("drop table if exists employees;")}
 catch(err){
@@ -94,7 +97,7 @@ var fileSplit= function(data) {
     console.log('syn -------> '+ values.length);
     if (data == 'all done') {
 
-        employeeModel(sequelize).findAll({order:"createdAt"}).then(function (emps) {
+        employeeModel.find().then(function (emps) {
 
             for(let i=0;i<emps.length;i++){
                 console.log("i ", i)
@@ -102,7 +105,7 @@ var fileSplit= function(data) {
         });
     }else {
 
-        employeeModel(sequelize).create({ id:uuid.v1({
+        employeeModel.create({ id:uuid.v1({
             node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
             clockseq: 0x1234,
             msecs: new Date().getTime(),
@@ -162,7 +165,7 @@ var connectionMongoDB = mongoose.connect(database.urlMongoDB).connection;
 connectionMongoDB.on('error', function(err) { console.log(err); });
 connectionMongoDB.once('open', function() {
     console.log("mongodb connection open");
-    console.log(connectionMongoDB)
+    //console.log(connectionMongoDB)
 });
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));

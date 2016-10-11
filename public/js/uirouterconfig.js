@@ -1,6 +1,7 @@
 angular.module('OneClickApp')
-    .config(function ($stateProvider) {
-console.log("in router conf")
+    .config(function ($stateProvider, $urlRouterProvider) {
+console.log("in router conf");
+        $urlRouterProvider.otherwise("EmpHome");
         $stateProvider
             .state({
                 name:'Template',
@@ -14,11 +15,7 @@ console.log("in router conf")
                 controller: 'mainController'
 
             })
-            .state({
-            name:'EmpHomePage1',
-            url:'/*',
-            templateUrl:'../templates/EmployeeHomePage.html'
-             })
+
             .state({
                 name:'EmpHomePage.search',
                 url:'/search'
@@ -34,4 +31,27 @@ console.log("in router conf")
                 templateUrl:'../templates/BasketItems.html'
 
             })
-    });
+            .state({
+                name:'EmpHome',
+            url:'/login',
+            templateUrl:'../index.html'
+        }).state({
+            name:'login',
+            url:'/oneClickApp/*/login',
+            templateUrl:'../templates/login.html',
+            controller:'loginCtrl'
+
+        })
+    }).run(function ($rootScope, $location) {
+
+        $rootScope.$on('$route ChangeStart', function (event, next, current) {
+            if($rootScope.session==null)
+            {
+                if(next.templateUrl==='../templates/login.html'){
+
+                }else{
+                    $location.path('/login')
+                }
+            }
+        })
+});

@@ -13,7 +13,10 @@ angular.module('OneClickApp')
          }
 
          $scope.totalItems=0;
-         $scope.basketItems=null;
+
+         $scope.basketItems={};
+        $scope.basketItems.totalItem=0;
+        $scope.basketItems.sumPrice=0;
          $scope.totalAmount=0;
 
          $scope.getBasketItems=function(){
@@ -38,7 +41,8 @@ angular.module('OneClickApp')
                         itemCurrency:"",
                         itemLink:element,
                         content:"",
-                        isExpanded:false
+                        isExpanded:false,
+                        itemNumber:""
 
                     };
 
@@ -70,7 +74,8 @@ angular.module('OneClickApp')
                          itemName: item.itemName,
                             itemPrice : item.itemPrice,
                             itemLink: item.itemLink,
-                             itemCurrency:item.itemCurrency
+                             itemCurrency:item.itemCurrency,
+                                itemNumber:item.itemNumber
         };
             var x = parseInt(item.itemPrice, 10)
             $scope.totalItems+=1;
@@ -91,6 +96,7 @@ angular.module('OneClickApp')
                 item.itemPrice=result.data.itemPrice;
                 item.itemLink=result.data.itemLink;
                 item.itemCurrency=result.data.itemCurrency
+                item.itemNumber=result.data.itemNumber;
             });
         };
 

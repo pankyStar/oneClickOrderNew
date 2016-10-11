@@ -1,21 +1,31 @@
 <div id="basketDetails" class="row pull-right">
 
-        <h3> Basket Items </h3>
-    <table class="col-sm-8 col-sm-offset-6 table table-striped">
+        <div> Basket Items </div>
+    <table class="col-sm-8 col-sm-offset-6 table table-striped" ng-init="basketItems.sumPrice=0">
         <tr>
             <th> Item Name </th>
             <th> Item Quantity </th>
+            <th> Item Number</th>
             <th> Item Price</th>
             <th> User name</th>
+            <th> Date Created</th>
         </tr>
 <tr ng-repeat="item in basketItems">
     <td>{{item.itemName}}</td>
     <td>1</td>
+    <td>{{item.itemNumber}}</td>
     <td>{{item.itemPrice}}<td>
     <td>{{item.userSession.body.userEmail}}</td>
+    <td>{{item.dateCreated}}</td>
+    <td ng-init="basketItems.sumPrice =basketItems.sumPrice +parseInt(item.itemPrice)"></td>
+
 
 </tr>
-    <th>  Total Amount {{totalAmount}}</th>
-    <th>  Total Items :{{totalItems}}</th>
+        <tr>
+
+            <th>  Total Amount {{   basketItems.sumPrice }}</th>
+            <th>  Total Items :{{basketItems.length}}</th>
+
+        </tr>
 </table>
 </div>

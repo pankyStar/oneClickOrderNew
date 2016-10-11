@@ -16,7 +16,7 @@ angular.module('OneClickApp')
 
                 console.log("in get product page service method", productLink);
                 return $http({
-                    url:"/oneClickApp/product",
+                    url:"/product",
                     method:"POST",
 
                     data: {

@@ -1,8 +1,31 @@
-/*
+
 
 var http= require('http');
 
-module.exports=httpProxyServer = http.createServer( (req, res) => {
+
+var httpProxy = require('http-proxy');
+
+var proxy = httpProxy.createProxyServer();
+http.createServer(function (req, res) {
+    // This simulates an operation that takes 500ms to execute
+    setTimeout(function () {
+        proxy.web(req, res, {
+            target: 'http://www.x-kom.pl'
+        });
+    }, 500);
+}).listen(8008);
+
+//
+// Create your target server
+//
+http.createServer(function (req, res) {
+    console.log("here")
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.write('request successfully proxied to: ' + req.url + '\n' + JSON.stringify(req.headers, true, 2));
+    res.end();
+}).listen(9008);
+
+/*module.exports=httpProxyServer = http.createServer( (req, res) => {
     console.log("create server in ");
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('okay');
@@ -58,13 +81,13 @@ httpProxyServer.listen(1337, '127.0.0.1', () => {
             httpProxyServer.close();
         });
     });
-});
+});*/
 
 console.log("End of file httpProxyServer");
 
 
 
-/!*
+/*
 http.createServer(function (request, response) {
     console.log("in servser")
     var proxy=http.createClient(80,request.headers['http://www.catonmat.net/http-proxy-in-nodejs/']);
@@ -85,5 +108,5 @@ http.createServer(function (request, response) {
     request.addListener('end',function () {
         proxy_request.end();
     });
-}).listen(1337);*!/
-*/
+}).listen(1337);*/
+

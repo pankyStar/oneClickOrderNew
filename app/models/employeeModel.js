@@ -1,5 +1,5 @@
 
-var Sequelize=require('sequelize');
+/*var Sequelize=require('sequelize');
 module.exports=function(sequelize){
         console.log("in employeemodel ");
    return sequelize.define("employees", {
@@ -10,4 +10,16 @@ module.exports=function(sequelize){
         personalToken: Sequelize.STRING(60)
 
     })
-};
+};*/
+
+var mongoose = require('mongoose');
+
+module.exports = mongoose.model('employees', {
+    id:String,
+    name: String,
+    surname : String,
+    email: String,
+    personalToken:String
+
+
+});

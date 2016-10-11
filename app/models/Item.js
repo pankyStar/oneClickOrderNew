@@ -8,7 +8,9 @@ module.exports = mongoose.model('Item', {
     itemPrice : String,
     itemLink: String,
     itemCurrency:String,
-    userSession:{}
+    userSession:{},
+    dateCreated:String,
+    itemNumber:String
 
 
 });
