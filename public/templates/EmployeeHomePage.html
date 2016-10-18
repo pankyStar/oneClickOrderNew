@@ -1,22 +1,32 @@
-<!--
-<script type="text/javascript">
-    function abc() {
-        alert("basket items");
-    }
-</script>-->
+
+<div id="preDefinedBaskets" class="pull-right">
+    <label id="labelPredefBaskets">Pre Defined Baskets</label>
+    <ul id="basketUL">
+        <li ng-repeat="basket in allBaskets.data track by $index">
+            <a ui-sref="preDefinedBasket" ui-sref-active="active" ng-click="showPreDefinedBasket(basket)">
+                {{basket.basketName}} </a>
+        </li>
+
+    </ul>
+
+</div>
+<div id="orderHistory" class="pull-right">
+    <label >Order History</label>
+
+</div>
 
 <div id="content" class="pull-right" >
-    <img src="../images/basket.png" ng-click="getBasketItems()"/>
-    <a ui-sref="EmpHomePage.basket" ui-sref-active="active">View basket</a>
+    <img src="../images/basket.png" />
+    <a ui-sref="mainBasket" ui-sref-active="active">View basket</a>
     <div>Total items: {{totalItems}} </div>
     <div>Basket Total: {{totalAmount}}</div>
 </div>
 
-<div ng-if="employeeModel1">
-    <div> Employee First Name : {{employeeModel1.name}}</div>
-    <div> Employee Last Name : {{employeeModel1.surname}} </div>
-    <div> personal Link : {{employeeModel1.personalToken}}</div>
-</div>
+<!--<div >
+    <div> Employee  Name : {{global.session[body.userName]}}</div>
+    <div> Personal Link : {{session.body.personalLink}}</div>
+    <div> Email :{{session.body.userEmail}}</div>
+</div>-->
 
 
 <form id="searchForm">
@@ -24,14 +34,14 @@
 <input type="submit" ng-click="searchInXKom()" value="Search in X-Kom"
        onclick="this.disabled=true;this.value='Sending, please wait...';" >
 </form>
-
+<label ng-show="errorOnSearch">{{errorOnSearch}}</label>
 <div>Search list
     <ul id="searchUL" >
         <li ng-class="{'highlight-link': item.content}"
             ng-repeat="item in vSearchtList track by $index ">
             <button ng-click="item.isExpanded=!item.isExpanded" >+</button>
             <button ng-click="item.isExpanded && addItemToLocalBasket(item)"
-                    >Buy/Kupuj</button>
+                    >Add to Basket</button>
             <a  ng-click="sendLinktoServer(item)"  >{{item.itemLink}}</a>
             <!--<div class="content" ng-show="item.isExpanded"> {{item.content}}</div>-->
             <div  ng-show="item.isExpanded" ng-bind-html="item.content | to_trusted"></div>
@@ -40,8 +50,6 @@
     </ul>
 </div>
 
-<!--<div ng-if="productData">
-    <div ng-bind-html="productData"></div>
-</div>-->
+
 
 <ui-view > </ui-view>

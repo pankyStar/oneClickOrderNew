@@ -3,6 +3,7 @@ let cheerio=require('cheerio')
 var request =require('request')
 var underScore=require('underscore')
 
+//var nightmare=new Nightmare({show:true});
 function prouctPageFromXKom(productLink) {
     console.log("nightmare product page", productLink)
    /* var nightmare=new Nightmare({show:true});
@@ -24,7 +25,6 @@ function prouctPageFromXKom(productLink) {
 }
 
 function loginXKom(){
-    var nightmare=new Nightmare({show:true});
     return nightmare.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
         .goto("https://www.x-kom.pl/logowanie")
        // .cookies.clearAll()//.type('form[action*="/szukaj"] [name=search-bar]','chleb')
@@ -64,7 +64,7 @@ function loginPiotrPawel(){
         console.error("Error ",error)
     });
 }
-function searchlistFromXKom(query){
+/*function searchlistFromXKom(query){
     var nightmare=new Nightmare({show:true});
     return nightmare.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
         .goto("https://www.x-kom.pl").cookies.clearAll()
@@ -91,14 +91,18 @@ function searchlistFromXKom(query){
             
         ).end();
 
-}
+}*/
 function searchlistFromPiotrPawel(query) {
     var nightmare=new Nightmare({show:true});
 }
 
-function loginAndBuyFromXKom(productLink){
-    var nightmare=new Nightmare({show:true});
-    return nightmare.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
+function loginAndBuyFromXKom(items){
+
+    console.log("link/................. >>>",items);
+   var nightmare=new Nightmare({show:true});
+
+
+   /*   nightmare.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
         .goto("https://www.x-kom.pl").cookies.clearAll()
         .wait(1500)
         .goto("https://www.x-kom.pl/logowanie")
@@ -106,24 +110,27 @@ function loginAndBuyFromXKom(productLink){
         .insert('[name="password"]','Xproxkom')
         .wait(100)
         .click('[type="submit"]')
-        .wait(2000)
-        .goto(productLink)
-        .wait(1000)
-        .click('[class="button button-wide button-green js-add-to-cart-product"]')
-        .wait(3000)
-        .evaluate(function () {
+        .wait(2000);*/
 
-            return "underprogress";
-        }
+    let start = "";
+    for (var i = 0; i < items.length; i++) {
+        start += ".goto('" +items[i].itemLink + "')"
+            +".click('"+'[class="button button-wide button-green js-add-to-cart-product"]'+"')"+".wait(1000)";
+    }
+    var evalString='nightmare.viewport(1000, 1000).useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")'
 
-    ).end();
+        +".wait(3000)"+'.goto("https://www.x-kom.pl").cookies.clearAll() .wait(500).goto("https://www.x-kom.pl/logowanie")' +
+        ''+start+".wait(1000)"+".click('#goToCheckout')"+".wait(10000)"+".end()"
+    console.log("eval str>>>",evalString);
+
+    return eval(evalString);
 
 }
 
 module.exports = {
     productPage:prouctPageFromXKom,
     loginToXCom:  loginXKom,
-    searchlistInXKom: searchlistFromXKom,
+   // searchlistInXKom: searchlistFromXKom,
     loginToPiotrPawel:loginPiotrPawel,
     buyFromXKom:loginAndBuyFromXKom
 };

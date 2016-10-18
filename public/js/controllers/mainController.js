@@ -1,71 +1,102 @@
 angular.module('OneClickApp')
 
-    .controller('mainController', function ($scope, Orders, $stateParams,$sce, BasketService) {
+    .controller('mainController', function($scope,$rootScope, Products, $stateParams, $sce, BasketService) {
         // $scope.formData = {};
 
-        $scope.employeeModel1 = null
+      //  $scope.employeeModel1 = {}
         /*   Orders.getOrder()
          .success(function(data) {
          //  $scope.orders = data;
          });*/
-         $scope.totalPrice=function(){
 
-         }
 
          $scope.totalItems=0;
 
          $scope.basketItems={};
-        $scope.basketItems.totalItem=0;
-        $scope.basketItems.sumPrice=0;
+         $scope.sumPrice=0;
          $scope.totalAmount=0;
+         $rootScope.pdbasket={};
+         $rootScope.itemSum=0;
+
+
+        $scope.passToMainBasket=function(pdbasket){
+            console.log("pass to main basket",pdbasket)
+            //make basket on basketitems page first using currentBasket type
+
+        };
 
          $scope.getBasketItems=function(){
             console.log("main ctrl for basket items");
-            // console.log(">>>>>>>>>>>>>>>>>>>>",BasketService.findAll())
-            BasketService.findAll().then(function (result) {
-                $scope.basketItems=result.data;
-                console.log("bitems", result.data)
+            // console.log(">>>>>>>>>>>>>>>>>>>>",BasketService.findAllItemsOfCurrentBasket())
+            BasketService.findAllItemsOfCurrentBasket().then(function (result) {
+               $scope.basketItems=result.data;
+                var sum=0;
+                for (var index in result.data) {
+                    sum+=parseFloat(result.data[index].itemPrice);
+
+                }
+                $scope.sumPrice=sum;
+                console.log("result bitems", result.data)
+
              });
 
         };
 
         $scope.searchInXKom = function () {
-            Orders.getSearchList($scope.query).then(function (result) {
+            Products.getSearchList($scope.query).then(function (result) {
 
                 $scope.isProcessing = true;
                 console.log("in controller after list is returned ", result.data);
-                $scope.vSearchtList = result.data.data.map(function (element) {
-                    var product={
-                        itemName: "",
-                        itemPrice : "",
-                        itemCurrency:"",
-                        itemLink:element,
-                        content:"",
-                        isExpanded:false,
-                        itemNumber:""
+                if(result.data.error){
+                    $scope.errorOnSearch=result.data.error;
+                }else {
+                    console.log("here")
+                    $scope.vSearchtList = result.data.data.map(function (element) {
+                        var product={
+                            itemName: "",
+                            itemPrice : "",
+                            itemCurrency:"",
+                            itemLink:element,
+                            content:"",
+                            isExpanded:false,
+                            itemNumber:""
 
-                    };
+                        };
 
-                    return product;
-                });
+                        return product;
+                    });
+                }
+
                 console.log("link array >>>>>>>>>>>>>>>>>>>>>>>>>>   ", $scope.vSearchtList)
             });
         };
 
-        Orders.getEmployee().then(function (result) {
+  /*      Products.getEmployee().then(function (result) {
             console.log("in getemp controller");
             //console.log(result.data[0]);
             $scope.employeeModel1 = result.data[0];
+
         }, function (reason) {
             console.log(reason);
-        });
-
+        });*/
+/*
         $scope.buyUsingLocalServer=function (productLink) {
-            Orders.buyFromXKom(productLink).then(function (result) {
+            Products.buyFromXKom(productLink).then(function (result) {
                 console.log("after buying from local server ->Xkom", result)
             })
 
 
+        };*/
+
+        $scope.showPreDefinedBasket=function (basket) {
+            console.log("in show predef bskt", basket)
+            $rootScope.pdbasket=basket;
+            var sum = 0;
+            for (var index in basket.items) {
+                sum += parseFloat(basket.items[index].itemPrice);
+
+            }
+            $rootScope.itemSum=sum;
         };
 
         $scope.addItemToLocalBasket=function (item) {
@@ -80,7 +111,7 @@ angular.module('OneClickApp')
             var x = parseInt(item.itemPrice, 10)
             $scope.totalItems+=1;
             $scope.totalAmount+=x;
-        BasketService.addItem(itemMongodb);
+            BasketService.addItem(itemMongodb);
         };
 
         $scope.sendLinktoServer = function (item) {
@@ -88,7 +119,7 @@ angular.module('OneClickApp')
                if(item.content.length>0){
                 return;
             }
-            Orders.getProductPage(item.itemLink).then(function (result) {
+            Products.getProductPage(item.itemLink).then(function (result) {
                 console.log("in controller after searching in from local browser ", result.data);
 
                 item.content=result.data.content;
@@ -100,18 +131,29 @@ angular.module('OneClickApp')
             });
         };
 
+        $scope.findAllpdBaskets=function () {
+            console.log("find all baskets mainctrl" )
+             BasketService.findAllpreDefinedBasket().then(function (res) {
+                 console.log("returned from server baskets", res)
+                 return  $scope.allBaskets=res;
+             });
 
-        $scope.createOrder = function () {
+        };
+        $scope.allBaskets=$scope.findAllpdBaskets();
+
+
+        //console.log("allbaskets ",$scope.allBaskets)
+      /*  $scope.saveBasket = function () {
             console.log("in maincontroller to create order");
 
             if ($scope.formData.text != undefined) {
-                Orders.create($scope.formData)
+                Products.create($scope.formData)
                     .success(function (data) {
                         // $scope.formData = {};
                         // $scope.orders = data;
                     });
             }
-        };
+        };*/
 
         /*   $http.get("/loaddata").then(function (response) {
 
@@ -124,16 +166,10 @@ angular.module('OneClickApp')
          });
          */
 
-        function loadEmployeePage() {
-            //var doc = jsdom.jsdom("./public/index.html");
-            console.log("doc ", document);
-            /*document.getElementById("emp_content").innerHTML=<div ng-include="'/app/views/EmployeeHomePage.html'" ng-if="employeeModel1"></div>/;*/
-
-        }
 
 
         $scope.deleteOrder = function (id) {
-            Orders.delete(id)
+            Products.delete(id)
 
                 .success(function (data) {
                     // $scope.orders = data;

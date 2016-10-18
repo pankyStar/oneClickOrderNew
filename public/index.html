@@ -22,23 +22,30 @@
     </script>
 
     <script src="js/assets/angular.js"></script>
+    <script src="js/assets/angular-ui-router.js"></script>
+    <script src="js/assets/angular-cookies.min.js"></script>
     <script src="js/core.js"></script>
     <script src="js/services/ProductService.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/services/BasketService.js"></script>
+    <script src="js/services/loginService.js"></script>
     <script src="js/controllers/mainController.js"></script>
-    <script src="js/assets/angular-ui-router.js"></script>
     <script src="js/uirouterconfig.js"></script>
 
 </head>
 
 <body ng-app="OneClickApp" class="ng-scope">
-<div class="container-fluid">
-    <div class="jumbotron text-center" >
-        <h1>OneClickOrder App </h1>
+<div id="containermain"  class="container-fluid">
+    <div class="jumbotron text-center" ng-controller="loginCtrl">
+        <h1>OneClickOrder  </h1>
+        <div id="aboutEmp"> Employee  Name : {{employeeModel1.name}} {{employeeModel1.surname}}<br>
+         Email :{{employeeModel1.email}}<br>
+            Personal Link : {{employeeModel1.personalToken}}<br>
+            </div>
     </div>
+
     <!--<a ui-sref="Template" ui-sref-active="active">Template</a>-->
-    <a ui-sref="EmpHomePage" ui-sref-active="active">EmpHomePage</a>
+    <a ui-sref="EmpHomePage" ui-sref-active="active">Employee HomePage</a>
     <ui-view></ui-view>
    <!-- <div ng-hide="attrs.id">
         <a class="btn btn-lg btn-primary" ng-disabled="true" ng-transclude></a>

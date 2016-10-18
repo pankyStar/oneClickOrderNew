@@ -1,31 +1,53 @@
-<div id="basketDetails" class="row pull-right">
 
-        <div> Basket Items </div>
-    <table class="col-sm-8 col-sm-offset-6 table table-striped" ng-init="basketItems.sumPrice=0">
+<div id="basketDetails" class="row " >
+
+        <!--<div> Basket Items </div>-->
+    <table class="col-sm-0 col-sm-offset-0 table table-striped">
+
+        <thead>
         <tr>
             <th> Item Name </th>
             <th> Item Quantity </th>
             <th> Item Number</th>
-            <th> Item Price</th>
             <th> User name</th>
             <th> Date Created</th>
+            <th> Item Price</th>
         </tr>
-<tr ng-repeat="item in basketItems">
-    <td>{{item.itemName}}</td>
-    <td>1</td>
-    <td>{{item.itemNumber}}</td>
-    <td>{{item.itemPrice}}<td>
-    <td>{{item.userSession.body.userEmail}}</td>
-    <td>{{item.dateCreated}}</td>
-    <td ng-init="basketItems.sumPrice =basketItems.sumPrice +parseInt(item.itemPrice)"></td>
+        </thead>
+        <tbody>
 
+        <tr ng-repeat="item in basketItems track by $index">
+            <td>{{item.itemName}}</td>
+            <td>1</td>
+            <td>{{item.itemNumber}}</td>
+            <td>some username</td>
+            <td>{{item.dateCreated.toString().trim()}}</td>
+            <td>{{item.itemPrice.toString().trim()}}</td>
+            <td><input type="button" value="Remove"  ng-click="deleteAnitem(item);"></td>
 
-</tr>
+        </tr>
         <tr>
-
-            <th>  Total Amount {{   basketItems.sumPrice }}</th>
+            <th>  Total Amount: {{sumPrice}} zł</th>
             <th>  Total Items :{{basketItems.length}}</th>
-
         </tr>
+        </tbody>
+
+
 </table>
+
+    <form id="basket" >
+        <Label> Enter name for basket</Label>
+        <input name="basket_name" type="text" ng-model="basketName" maxlength="128"  >
+        <label class="checkbox-inline">
+            <input type="checkbox" name="pre_def_checkbox" ng-model="basketStatus"> Pre Defined Basket
+        </label>
+        <input type="submit" ng-click="saveBasket(basketItems)" value="Save Basket"
+               onclick="this.disabled=true;" >
+
+    </form>
+    <Label id="savedbasket" ng-show="saved" class="label">{{saved}}</Label>
+    <button  ng-click="emptyBasket(basketItems)" class="button" >Empty main basket</button>
+    <Label id="deleted" ng-show="deleted" class="label">{{deleted}}</Label>
+    <button  ng-click="placeOrder(basketItems)" class="button" > Place Order</button>
+    <Label id="emptyBasketWarning" ng-if="emptyBasketWarn" class="label">Basket is Empty </Label>
 </div>

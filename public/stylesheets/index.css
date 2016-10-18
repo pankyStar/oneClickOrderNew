@@ -1,10 +1,17 @@
 
 html {
   overflow-y: scroll;
+
 }
 
 body {
   padding-top: 50px;
+  background-color: #e9ebee !important; ;
+/*  height:100%;
+  width:100%;
+  background-image:url('../images/copy.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;*/
 }
 
 .highlight-link a{
@@ -21,22 +28,68 @@ body {
 #content {
   position: relative;
   top:40px;
-  right:370px;
+  right:75px;
   margin-top:-70px;
-  cursor: pointer;
-  cursor: hand;
+
 
 }
+.table-striped{
+  margin-left: 2%;
+}
+#savedbasket{
+  color: green;
+  background-color: ghostwhite;
+  margin-left:400px;
+}
+#deleted{
+  color: green;
+  background-color: ghostwhite;
+  margin-left:700px;
+}
+#emptyBasketWarning{
+  color: red;
+  background-color: ghostwhite;
+  margin-left:20px;
+}
 
+#areapdBasket{
+  left: 400px;
+}
+#basket{
+  margin-left:10px;
+}
+.button{
+  margin-left: 900px;
+  margin-top: 10px;
+}
+#preDefinedBaskets{
+  margin-right: 120px;
+}
 #basketDetails{
 position: absolute;
   top:150px;
   right:10px;
-  left:700px;
+  left:10px;
   margin-top:190px;
 
 }
 .jumbotron.text-center {
-  background-color: aquamarine;
-  color: firebrick;
+  background-color: brown;
+  color: white;
+  font-family: "Tahoma",Serif;
+  margin-top: -40px;
+}
+#labelPredefBaskets{
+  color: slateblue;
+}
+.jumbotron.text-center #aboutEmp {
+  margin-left: 602px;
+  margin-top: -11px;
+}
+#orderHistory{
+  margin-right: 150px;
+  color: #8a6d3b;
+}
+#searchForm{
+  margin-top: 20px;
 }

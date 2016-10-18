@@ -1,16 +1,16 @@
 angular.module('OneClickApp')
 
 
-    .factory('Orders', function($http) {
+    .factory('Products', function($http) {
         return {
 
             getEmployee:function(){
                 console.log("called service for employee");
-                return $http.get('/oneClickApp/:token/loaddata');
+                return $http.get('/:token/loaddata');
             },
             getSearchList:function ( query) {
                 console.log('in get searchlist service');
-                return $http.get("/oneClickApp/:token/searchxk/"+query)
+                return $http.get("/:token/searchxk/"+query)
             },
             getProductPage:function (productLink) {
 
@@ -25,12 +25,12 @@ angular.module('OneClickApp')
                 });
 
             },
-            buyFromXKom:function (productLink) {
-                console.log("product",productLink);
+            buyFromXKom:function (items) {
+                console.log("product",items);
                 return $http({
                    url:"/buyfromXkom",
                     method:"POST",
-                    data:{link:productLink}
+                    data:{items:items}
                 });
             }
 
