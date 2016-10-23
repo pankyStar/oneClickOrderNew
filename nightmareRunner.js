@@ -42,7 +42,7 @@ function loginXKom(){
         });
        // .end();
 }
-function loginPiotrPawel(){
+function loginAndbuyInPiotrPawel(){
     var nightmare=new Nightmare({show:true});
       return nightmare.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
         .goto("https://www.e-piotripawel.pl/klient/logowanie")//.type('form[action*="/szukaj"] [name=search-bar]','chleb')
@@ -131,6 +131,6 @@ module.exports = {
     productPage:prouctPageFromXKom,
     loginToXCom:  loginXKom,
    // searchlistInXKom: searchlistFromXKom,
-    loginToPiotrPawel:loginPiotrPawel,
+    buyInPiotrPawel:loginAndbuyInPiotrPawel,
     buyFromXKom:loginAndBuyFromXKom
 };

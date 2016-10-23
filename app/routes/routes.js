@@ -153,6 +153,69 @@ module.exports = function (app) {
         }
     });
 
+    app.get("/piotrpawel/search/:query", function (req, res) {
+        var searchquery=req.params.query;
+        console.log("routes query pp",searchquery)
+        if (typeof searchquery !== undefined && searchquery !== null && searchquery != "") {
+            request("https://www.e-piotripawel.pl/index/asortyment?sCity=polska&query="+searchquery+"&Szukaj=", function (error, response, body) {
+                var dataSet = new Set();
+                if (!error && response.statusCode == 200) {
+                    $ = cheerio.load(body);
+                    var links = $('div[class="ProduktList"]').find('a');
+                    console.log("links >>>>",links)
+                    for (let i = 0; i < links.length; i++) {
+                        var href = $(links[i]).attr('href');
+                        //if (href.indexOf("#reviews") == -1) {
+                            dataSet.add("https://www.e-piotripawel.pl" + $(links[i]).attr('href'))
+                        //}
+
+                    }
+                    console.log("data from cheerio >>>");
+                    res.json({data: Array.from(dataSet)})
+                }
+
+            })
+
+        }
+
+    });
+    app.post("/piotrpawel/product", function (req, res) {
+        console.log("called server for pp product page", req.body);
+        var productLink = req.body.link;
+        console.log("product link>>", productLink);
+        var data = {itemName: "", itemPrice: "", itemLink: "", content: "", currency: '', itemNumber: ''};
+        if (typeof productLink !== undefined && productLink !== null && productLink != "") {
+
+            console.log("request and cheerio the html for the product");
+            request(productLink, function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    $ = cheerio.load(body);
+                    //$('.breadcrumbs').remove()
+                    $('div[class="TopBasketBg"]').remove()
+                    $('div[class="HeaderContent"]').remove()
+                    data.content = $('div[class="ProductViewContainer  product-details "]').html();
+                   // let childPrice = $('span[class="pull-right price"]').children().get(1);
+                   // let childCurrency = $('span[class="pull-right price"]').children().get(0);
+
+                    //data.itemName = $('div[class="product-info"]').children().text();
+                    data.itemLink = productLink;
+                   // data.itemPrice = childPrice.attribs.content;
+                    //data.itemCurrency = childCurrency.attribs.content;
+                    data.itemNumber = $('div[class="p4"]').text()
+                    res.json(data)
+                }
+            })
+        }
+
+    });
+    app.post("/piotrpawel/buy",function (request, response) {
+
+        console.log("routes buy pp")
+        nightmare.buyInPiotrPawel().then(function (result) {
+            console.log("nightmare res",result);
+            response.json(result)
+        })
+    })
     app.post("/buyfromXkom", function (req, res) {
         console.log("called private nightmare browser to buy");
         var items = req.body.items;
@@ -164,15 +227,12 @@ module.exports = function (app) {
                     res.json({data: data});
                     console.log("data returned from node server");
 
-                });
-
-
-        }
+                });        }
         else {
             res.json({"error":"could not buy items"})
         }
 
-    })
+    });
 
 
     app.get("/:token/searchxk/:query", function (req, res) {
@@ -180,9 +240,9 @@ module.exports = function (app) {
         var tokenfromUser = req.params.token;
         console.log("searchquery>>>>> ", searchquery);
         console.log("token from user >>>>> ", tokenfromUser);
-        var dataSet = new Set();
-        if (typeof searchquery !== undefined && searchquery !== null && searchquery != "") {
 
+        if (typeof searchquery !== undefined && searchquery !== null && searchquery != "") {
+            var dataSet = new Set();
             console.log("request and cheerio to search in XKOm");
             cloudscraper.get("https://www.x-kom.pl/szukaj?q=" + searchquery, function(error, response, body) {
                 if (error) {

@@ -1,6 +1,7 @@
 angular.module('OneClickApp')
 
-    .controller('mainController', function($scope,$rootScope, Products, $stateParams, $sce, BasketService) {
+    .controller('mainController', function($scope,$rootScope, Products, $stateParams, $sce, BasketService,
+                                            $cookies,PiotrAndPawelService) {
         // $scope.formData = {};
 
       //  $scope.employeeModel1 = {}
@@ -24,6 +25,26 @@ angular.module('OneClickApp')
             //make basket on basketitems page first using currentBasket type
 
         };
+        $scope.searchInPiotrPawel=function () {
+            PiotrAndPawelService.connectToPiotrPawelSearch($scope.querypp).then(function (result) {
+                console.log("result ", result.data)
+                $scope.ppSearchList=result.data.data.map(function (element) {
+                    var product={
+                        itemLink:element,
+                        itemName: "",
+                        itemPrice : "",
+                        itemCurrency:"",
+                        itemLink:element,
+                        content:"",
+                        isExpanded:false,
+                        itemNumber:""
+                    }
+                    return product
+                });
+
+            });
+
+        }
 
          $scope.getBasketItems=function(){
             console.log("main ctrl for basket items");
@@ -106,12 +127,27 @@ angular.module('OneClickApp')
                             itemPrice : item.itemPrice,
                             itemLink: item.itemLink,
                              itemCurrency:item.itemCurrency,
-                                itemNumber:item.itemNumber
+                                itemNumber:item.itemNumber,
+
         };
+            /*console.log("usersession", global.session[$cookies.get('sessionToken')])*/
             var x = parseInt(item.itemPrice, 10)
             $scope.totalItems+=1;
             $scope.totalAmount+=x;
             BasketService.addItem(itemMongodb);
+        };
+
+        $scope.getProductPageFromPP=function (item) {
+            console.log("product to load",item.itemLink)
+            PiotrAndPawelService.getPPProductPage(item.itemLink).then(function (result) {
+                console.log("in controller after searching in from local browser pp", result.data);
+                item.content=result.data.content;
+                item.itemName=result.data.itemName;
+                item.itemPrice=result.data.itemPrice;
+                item.itemLink=result.data.itemLink;
+                item.itemCurrency=result.data.itemCurrency
+                item.itemNumber=result.data.itemNumber;
+            })
         };
 
         $scope.sendLinktoServer = function (item) {

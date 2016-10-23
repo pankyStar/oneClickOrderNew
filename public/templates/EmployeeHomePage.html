@@ -14,7 +14,6 @@
     <label >Order History</label>
 
 </div>
-
 <div id="content" class="pull-right" >
     <img src="../images/basket.png" />
     <a ui-sref="mainBasket" ui-sref-active="active">View basket</a>
@@ -29,13 +28,33 @@
 </div>-->
 
 
-<form id="searchForm">
-<input name="q" type="text" ng-model="query" maxlength="128"  >
-<input type="submit" ng-click="searchInXKom()" value="Search in X-Kom"
-       onclick="this.disabled=true;this.value='Sending, please wait...';" >
+
+<form id="searchFormPP">
+    <input name="q" type="text" ng-model="querypp" maxlength="128"  >
+    <input type="submit" ng-click="searchInPiotrPawel()" value="Search in Piotr&Paweł"
+           onclick="this.disabled=true;this.value='Sending, please wait...';" >
 </form>
+<div>Search list from Piotr&Pawel
+    <ul id="searchPPul" >
+        <li
+            ng-repeat="item in ppSearchList  ">
+            <button ng-click="item.isExpanded=!item.isExpanded" >+</button>
+            <button ng-click="item.isExpanded && addItemToLocalBasket(item)"
+            >Add to Basket</button>
+            <a  ng-click="getProductPageFromPP(item)"  >{{item.itemLink}}</a>
+            <!--<div class="content" ng-show="item.isExpanded"> {{item.content}}</div>-->
+            <div  ng-show="item.isExpanded" ng-bind-html="item.content | to_trusted"></div>
+        </li>
+
+    </ul>
+</div>
 <label ng-show="errorOnSearch">{{errorOnSearch}}</label>
-<div>Search list
+<form id="searchForm">
+    <input name="q" type="text" ng-model="query" maxlength="128"  >
+    <input type="submit" ng-click="searchInXKom()" value="Search in X-Kom"
+           onclick="this.disabled=true;this.value='Sending, please wait...';" >
+</form>
+<div>Search list from X-kom
     <ul id="searchUL" >
         <li ng-class="{'highlight-link': item.content}"
             ng-repeat="item in vSearchtList track by $index ">
